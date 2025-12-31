@@ -7,6 +7,7 @@ import com.mtcoding.shop.repository.OrderRepository;
 import com.mtcoding.shop.repository.ProductRepository;
 import com.mtcoding.shop.repository.UserRepository;
 import com.mtcoding.shop.service.CartService;
+import com.mtcoding.shop.service.OrderService;
 import com.mtcoding.shop.service.ProductService;
 import com.mtcoding.shop.service.UserService;
 import com.mtcoding.shop.view.CartListView;
@@ -35,15 +36,18 @@ public class ShopApp {
 //        us.회원가입("coss","coss1234","coss@nate.com");
 
         // 4. 장바구니 담기
-        CartService cs = new CartService(cartRepository);
+//        CartService cs = new CartService(cartRepository);
 //        cs.장바구니담기(1,2,3);
 
         // 5. 장바구니보기
-        List<CartListView> cartListViews = cs.장바구니보기(1);
-
-        for (CartListView c : cartListViews) {
-            System.out.println(c);
-        }
+//        List<CartListView> cartListViews = cs.장바구니보기(1);
+//
+//        for (CartListView c : cartListViews) {
+//            System.out.println(c);
+//        }
+        // 6. 주문하기
+        OrderService os = new OrderService(productRepository,orderRepository);
+        os.주문하기(1,1,2);
 
 
     }

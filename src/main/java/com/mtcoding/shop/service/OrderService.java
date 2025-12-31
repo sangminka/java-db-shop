@@ -21,10 +21,16 @@ public class OrderService {
 
     public void 주문하기(int uId, int pId, int qty){
         // 1. product selectOne(pId) -> 가격
+        int totalPrice = productRepository.selectOne(pId).getPPrice();
 
         // 2. order insert
+//        orderRepository.insert()
+        orderRepository.insert(uId,pId,qty,totalPrice);
+//        // 3. product update(pId, qty)
+        int chQty = productRepository.selectOne(pId).getPStock() - qty;
+        productRepository.update(pId,chQty);
 
-        // 3. product update(pId, qty)
+
     }
 
     // 유저별 주문 이력 보기
