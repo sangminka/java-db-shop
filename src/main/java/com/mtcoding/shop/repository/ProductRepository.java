@@ -5,7 +5,9 @@ import com.mtcoding.shop.model.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
@@ -15,6 +17,36 @@ public class ProductRepository {
     }
 
     public List<Product> selectAll(){
+        // 1. DBMS와 연결된 소켓
+        Connection conn = DBConnection.getConnection();
+
+
+        try {
+            String sql = "select * from product_tb";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            List<Product> products = new ArrayList<>();
+
+            // 조회해서 view로 응답밥기
+            ResultSet rs = pstmt.executeQuery();
+
+            // 행이 존재하면 프로젝션
+            while (rs.next()){
+                // rs를 자바오브젝트로 파싱
+                int c1 = rs.getInt("p_id");
+                String c2 = rs.getString("p_name");
+                int c3 = rs.getInt("p_price");
+                int c4 = rs.getInt("p_stock");
+                Product product = new Product(c1,c2,c3,c4);
+                products.add(product);
+
+            }
+
+            return products;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -40,4 +72,6 @@ public class ProductRepository {
         }
         return -1;
     }
+
+
 }

@@ -1,11 +1,14 @@
 package com.mtcoding.shop;
 
+import com.mtcoding.shop.model.Product;
 import com.mtcoding.shop.model.User;
 import com.mtcoding.shop.repository.CartRepository;
 import com.mtcoding.shop.repository.OrderRepository;
 import com.mtcoding.shop.repository.ProductRepository;
 import com.mtcoding.shop.repository.UserRepository;
 import com.mtcoding.shop.service.ProductService;
+
+import java.util.List;
 
 public class ShopApp {
     public static void main(String[] args) {
@@ -16,6 +19,14 @@ public class ShopApp {
 
         // 1. 상품등록
         ProductService ps = new ProductService(productRepository);
-        ps.상품등록("바나나", 100, 5);
+        ps.상품등록("딸기", 300, 7);
+        // 2. 전체 상품 조회
+        List<Product> products = ps.상품목록보기();
+
+        for (Product s : products){
+            System.out.println(s);
+        }
+
+
     }
 }

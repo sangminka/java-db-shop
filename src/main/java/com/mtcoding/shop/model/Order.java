@@ -1,8 +1,13 @@
 package com.mtcoding.shop.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
  * order_tb
  */
+@AllArgsConstructor
+@Data
 public class Order {
     private Integer oId; // 숫자증가(PK)
     private Integer uId; // 주문한 유저 ID

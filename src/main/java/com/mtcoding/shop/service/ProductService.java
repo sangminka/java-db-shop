@@ -3,6 +3,7 @@ package com.mtcoding.shop.service;
 import com.mtcoding.shop.model.Product;
 import com.mtcoding.shop.repository.ProductRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
@@ -21,6 +22,10 @@ public class ProductService {
 
     public List<Product> 상품목록보기(){
         // 1. 전체조회 (order by pId desc)
-        return null;
+        List<Product> list = new ArrayList<>();
+
+        list = productRepository.selectAll();
+
+        return list;
     }
 }
