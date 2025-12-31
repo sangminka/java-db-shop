@@ -36,6 +36,7 @@ public class OrderService {
     // 유저별 주문 이력 보기
     public List<OrderListView> 주문이력보기(int uId){
         // 1. selectJoin();
-        return null;
+        return orderRepository.selectJoin(uId);
+
     }
 }

@@ -1,5 +1,10 @@
 package com.mtcoding.shop.view;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class OrderListView {
     private Integer oId; // 주문번호
     private String uName; // uId 대신 유저 이름 가져오기 (조인)

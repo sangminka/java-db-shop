@@ -11,6 +11,7 @@ import com.mtcoding.shop.service.OrderService;
 import com.mtcoding.shop.service.ProductService;
 import com.mtcoding.shop.service.UserService;
 import com.mtcoding.shop.view.CartListView;
+import com.mtcoding.shop.view.OrderListView;
 
 import java.util.List;
 
@@ -47,8 +48,14 @@ public class ShopApp {
 //        }
         // 6. 주문하기
         OrderService os = new OrderService(productRepository,orderRepository);
-        os.주문하기(1,1,2);
+//        os.주문하기(1,1,2);
 
+        // 전체리스트 보기
+        List<OrderListView> orderListViews = os.주문이력보기(1);
+
+        for (OrderListView o : orderListViews) {
+            System.out.println(o);
+        }
 
     }
 }
