@@ -13,8 +13,9 @@ public class CartService {
         this.cartRepository = cartRepository;
     }
 
-    public void 장바구니담기(int cId, int pId, int qty){
+    public void 장바구니담기(int uId, int pId, int qty){
         // 1. cart insert
+        cartRepository.장바구니담기(uId,pId,qty);
     }
 
     public List<CartListView> 장바구니보기(int uId){

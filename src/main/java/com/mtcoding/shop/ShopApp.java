@@ -6,6 +6,7 @@ import com.mtcoding.shop.repository.CartRepository;
 import com.mtcoding.shop.repository.OrderRepository;
 import com.mtcoding.shop.repository.ProductRepository;
 import com.mtcoding.shop.repository.UserRepository;
+import com.mtcoding.shop.service.CartService;
 import com.mtcoding.shop.service.ProductService;
 import com.mtcoding.shop.service.UserService;
 
@@ -31,6 +32,10 @@ public class ShopApp {
         // 3. 회원가입
 //        UserService us = new UserService(userRepository);
 //        us.회원가입("coss","coss1234","coss@nate.com");
+
+        // 4. 장바구니 담기
+        CartService cs = new CartService(cartRepository);
+        cs.장바구니담기(1,2,3);
 
 
     }
