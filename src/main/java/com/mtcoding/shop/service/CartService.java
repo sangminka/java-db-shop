@@ -5,6 +5,7 @@ import com.mtcoding.shop.view.CartListView;
 
 import java.util.List;
 
+
 public class CartService {
 
     CartRepository cartRepository;
@@ -20,6 +21,7 @@ public class CartService {
 
     public List<CartListView> 장바구니보기(int uId){
         // 1. cart selectJoin(uId)
-        return null;
+//        cartRepository.장바구니보기(uId);
+        return cartRepository.장바구니보기(uId);
     }
 }

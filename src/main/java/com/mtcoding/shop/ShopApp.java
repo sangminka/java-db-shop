@@ -9,6 +9,7 @@ import com.mtcoding.shop.repository.UserRepository;
 import com.mtcoding.shop.service.CartService;
 import com.mtcoding.shop.service.ProductService;
 import com.mtcoding.shop.service.UserService;
+import com.mtcoding.shop.view.CartListView;
 
 import java.util.List;
 
@@ -35,7 +36,14 @@ public class ShopApp {
 
         // 4. 장바구니 담기
         CartService cs = new CartService(cartRepository);
-        cs.장바구니담기(1,2,3);
+//        cs.장바구니담기(1,2,3);
+
+        // 5. 장바구니보기
+        List<CartListView> cartListViews = cs.장바구니보기(1);
+
+        for (CartListView c : cartListViews) {
+            System.out.println(c);
+        }
 
 
     }
